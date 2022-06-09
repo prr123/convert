@@ -1,4 +1,4 @@
-// convert .go
+// convert.go
 // author pr azul software
 // date: 9. June 2022
 // update:
@@ -11,6 +11,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"convert/cvtLib"
 	)
 
 
@@ -43,5 +44,10 @@ func main () {
 	fmt.Printf("input file: %s\n", inpfilNam)
 	fmt.Printf("go file:    %s\n", gofilNam)
 
+	err := cvtLib.CreGoFil(inpfilNam, gofilNam)
+	if err != nil {
+		fmt.Printf("error CreGoFil: %v\n", err)
+		os.Exit(1)
+	}
 	fmt.Println("**** Convert Success ****")
 }
